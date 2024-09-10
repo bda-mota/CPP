@@ -16,7 +16,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	phonebook
-SRCS	=	./src/main.cpp ./src/Contact.cpp
+SRCS	=	./src/main.cpp ./src/Contact.cpp ./src/PhoneBook.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard /includes/*.hpp)
@@ -30,7 +30,6 @@ WHITE	=	"\033[37;1m"
 YELLOW	=	"\033[33;1m"
 BLUE	=	"\033[34;1m"
 MAGENT	=	"\033[35;1m"
-CYAN	=	"\033[36;1m"
 LIMITER	=	"\033[0m"
 
 #------------------------------------------------------------------------------#
