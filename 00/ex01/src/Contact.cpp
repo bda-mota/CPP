@@ -1,20 +1,13 @@
 #include <iostream>
 #include "../includes/Contact.hpp"
 
-Contact::Contact(void) {
-	std::cout << "Default Contact Constructor Called" << std::endl;
-}
+Contact::Contact(void) {}
 
 Contact::Contact(const std::string& firstName, const std::string& lastName, const std::string& nickname,
 	const std::string& phoneNumber, const std::string& darkestSecret) : _firstName(firstName), _lastName(lastName),
-	_nickname(nickname), _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {
-	std::cout << "Parameterized Contact Constructor Called" << std::endl;
-}
+	_nickname(nickname), _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {}
 
-Contact::~Contact(void) {
-	std::cout << "Destructor Contact Called" << std::endl;
-	return ;
-}
+Contact::~Contact(void) {}
 
 std::string Contact::getFirstName() const { return _firstName; }
 std::string Contact::getLastName() const { return _lastName; }
