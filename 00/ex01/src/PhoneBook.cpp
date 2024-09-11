@@ -110,7 +110,6 @@ namespace utilsPhoneBook {
 		int	contactsToPrint = (contactsNbr < 8) ? contactsNbr : 8;
 
 		for (int i = 0; i < contactsToPrint; i++) {
-
 			first = _contacts[i].getFirstName();
 			if (first.length() > 10)
 				first = first.substr(0, 9) + ".";
@@ -153,6 +152,8 @@ void	PhoneBook::searchContact() {
 	std::cout << MAGENT << "Enter index contact: " << RESET;
 	std::getline(std::cin, contactIndex);
 	while (true) {
+		if (std::cin.sync() == -1)
+			break ;
 		if (utilsPhoneBook::validateIndex(contactIndex))
 		{
 			utilsPhoneBook::printContact(_contacts, utilsPhoneBook::convertIndex(contactIndex));
@@ -181,6 +182,8 @@ void	PhoneBook::addContact() {
 	std::cout << MAGENT << "Enter First Name: " << RESET;
 	std::getline(std::cin, firstName);
 	while (true){
+		if (std::cin.sync() == -1)
+			return ;
 		if (!utilsPhoneBook::validateInputs(firstName))
 			std::cerr << RED << "First name invalid." RESET << std::endl;
 		else
@@ -192,6 +195,8 @@ void	PhoneBook::addContact() {
 	std::cout << MAGENT <<"Enter Last Name: " << RESET;
 	std::getline(std::cin, lastName);
 	while (true) {
+		if (std::cin.sync() == -1)
+			return ;
 		if (!utilsPhoneBook::validateInputs(lastName))
 			std::cerr << RED << "Last name invalid." RESET << std::endl;
 		else
@@ -203,6 +208,8 @@ void	PhoneBook::addContact() {
 	std::cout << MAGENT << "Enter Nickname: " << RESET;
 	std::getline(std::cin, nickname);
 	while (true) {
+		if (std::cin.sync() == -1)
+			return ;
 		if (!utilsPhoneBook::validateInputs(nickname))
 			std::cerr << RED << "Nickname invalid." RESET << std::endl;
 		else
@@ -214,6 +221,8 @@ void	PhoneBook::addContact() {
 	std::cout << MAGENT << "Enter Phone Number: " << RESET;
 	std::getline(std::cin, phoneNumber);
 	while (true) {
+		if (std::cin.sync() == -1)
+			return ;
 		if (!utilsPhoneBook::validatePhoneNumber(phoneNumber))
 			std::cerr << RED << "Invalid phone number." << RESET << std::endl;
 		else
@@ -225,6 +234,8 @@ void	PhoneBook::addContact() {
 	std::cout << MAGENT << "Enter Darkest Secret: " << RESET;
 	std::getline(std::cin, darkestSecret);
 	while (true) {
+		if (std::cin.sync() == -1)
+			return ;
 		if (!utilsPhoneBook::validateInputs(darkestSecret))
 			std::cerr << RED << "Darkest secret invalid." RESET << std::endl;
 		else

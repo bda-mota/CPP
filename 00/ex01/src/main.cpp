@@ -12,7 +12,7 @@ void printMenu() {
 	std::cout << CYAN << " - - - - - - - - - - - - - - " << std::endl;
 	std::cout << "1. " << GREEN << "ADD " << CYAN << "- Add a new contact" << std::endl;
 	std::cout << CYAN << "2. " << GREEN << "SEARCH " << CYAN << "- Display contacts" << std::endl;
-	std::cout << CYAN << "3. " << GREEN << "EXIT " << CYAN << "- Display contacts" << std::endl;
+	std::cout << CYAN << "3. " << GREEN << "EXIT " << CYAN << "- Quit the program" << std::endl;
 	std::cout << std::endl;
 	std::cout << GREEN << "Enter your choice: " << RESET;
 }
@@ -24,13 +24,13 @@ int main(void)
 
 	while (true)
 	{
+		if (std::cin.sync() == -1)
+			break ;
 		printMenu();
+		
 		std::getline(std::cin, command);
-		if (std::cin.eof()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "EOF detected and input stream cleared." << std::endl;
-		}
+		if (std::cin.sync() == -1)
+			break ;
 
 		if (command == "ADD")
 			phoneBook.addContact();
