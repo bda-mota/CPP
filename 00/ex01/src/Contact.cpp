@@ -15,7 +15,7 @@ std::string Contact::getNickname() const { return _nickname; }
 std::string Contact::getPhoneNumber() const { return _phoneNumber; }
 std::string Contact::getDarkestSecret() const { return _darkestSecret; }
 
-void Contact::setFirstName(const std::string& firstName) {
+void	Contact::setFirstName(const std::string& firstName) {
 	if (!firstName.empty())
 		this->_firstName = firstName;
 }

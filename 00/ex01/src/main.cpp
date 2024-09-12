@@ -19,15 +19,15 @@ void printMenu() {
 
 int main(void)
 {
-	PhoneBook phoneBook;
-	std::string command;
+	PhoneBook	phoneBook;
+	std::string	command;
 
 	while (true)
 	{
 		if (std::cin.sync() == -1)
 			break ;
 		printMenu();
-		
+
 		std::getline(std::cin, command);
 		if (std::cin.sync() == -1)
 			break ;
