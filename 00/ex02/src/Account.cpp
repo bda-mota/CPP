@@ -33,7 +33,16 @@ void	Account::displayAccountsInfos() {
 }
 
 void	Account::_displayTimestamp() {
-	std::cout << "[19920104_091532] ";
+	std::time_t currentTime = std::time(NULL);
+
+	std::tm* localTime = std::localtime(&currentTime);
+
+	std::cout << "[" << (localTime->tm_year + 1900) << ""
+	<< std::setfill('0') << std::setw(2) << (localTime->tm_mon + 1) << ""
+	<< std::setfill('0') << std::setw(2) << localTime->tm_mday << "_"
+	<< std::setfill('0') << std::setw(2) << localTime->tm_hour << ""
+	<< std::setfill('0') << std::setw(2) << localTime->tm_min << ""
+	<< std::setfill('0') << std::setw(2) << localTime->tm_sec << "] ";
 }
 
 void	Account::makeDeposit(int deposit) {
