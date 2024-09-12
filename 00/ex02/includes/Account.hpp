@@ -41,9 +41,9 @@ public:
 private:
 
 	static int	_nbAccounts;
-	static int	_totalAmount; //quantia
+	static int	_totalAmount;
 	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals; //retirada
+	static int	_totalNbWithdrawals;
 
 	static void	_displayTimestamp( void );
 
