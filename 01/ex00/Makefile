@@ -15,10 +15,11 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	megaphone
-SRCS	=	./src/megaphone.cpp
+NAME	=	phonebook
+SRCS	=	./src/main.cpp ./src/Zombie.cpp ./src/randomChump.cpp ./src/newZombie.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
+INC		=	$(wildcard /includes/*.hpp)
 
 # Colors
 GREEN	=	"\033[32;1m"
@@ -29,7 +30,6 @@ WHITE	=	"\033[37;1m"
 YELLOW	=	"\033[33;1m"
 BLUE	=	"\033[34;1m"
 MAGENT	=	"\033[35;1m"
-CYAN	=	"\033[36;1m"
 LIMITER	=	"\033[0m"
 
 #------------------------------------------------------------------------------#
@@ -43,7 +43,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $@
 
 # Compiles sources into objects
-$(BIN_DIR)/%.o: src/%.cpp
+$(BIN_DIR)/%.o: src/%.cpp $(INC)
 	@echo $(MAGENT)[Compiling $<]$(LIMITER) $(GREEN)with$(LIMITER) $(CYAN)[$(CC) $(CFLAGS)]$(LIMITER)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
