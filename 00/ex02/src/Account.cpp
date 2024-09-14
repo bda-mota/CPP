@@ -3,9 +3,6 @@
 #include <ctime>
 #include "../includes/Account.hpp"
 
-# define BLUE	"\033[34;1m"
-# define RESET	"\033[0m"
-
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;

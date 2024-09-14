@@ -9,14 +9,6 @@
 /* - - - - UTILS - - - - */
 namespace utilsPhoneBook {
 
-	void	clearBuffer(void) {
-		if (std::cin.eof()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "EOF detected and input stream cleared." << std::endl;
-		}
-	}
-
 	bool	validateIndex(std::string& index) {
 		if (index.empty()) {
 			std::cerr << RED << "Index cannot be empty!" << RESET << std::endl;
