@@ -14,7 +14,7 @@ int main()
 	}
 	{
 		std::cout << YELLOW << "\n--- Test: Human B ---\n" << RESET;
-		Weapon club = Weapon("crude spiked club");
+		Weapon club = Weapon("shotgun");
 		HumanB jim("Sam");
 		jim.setWeapon(club);
 		jim.attack();

@@ -13,7 +13,7 @@ void	HumanB::attack() {
 	std::cout << MAGENT << _name << RESET << " attacks with ";
 
 	if (_weapon)
-		std::cout << "their " << CYAN << _weapon->getType() << RESET << std::endl;
+		std::cout << "their " << CYAN << _weapon->getType() << "." << RESET << std::endl;
 	else
 		std::cout << CYAN << "no weapon." << RESET << std::endl;
 }
