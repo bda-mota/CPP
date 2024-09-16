@@ -15,23 +15,21 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	account
-SRCS	=	./src/tests.cpp ./src/Account.cpp
+NAME	=	brain
+SRCS	=	./src/main.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
-INC		=	$(wildcard /includes/*.hpp)
 
 # Colors
-GREEN	=	"\033[32;1m"
-RED		=	"\033[31;1m"
-CYAN	=	"\033[36;1;3m"
 WHITE_U	=	"\033[37;1;4m"
 WHITE	=	"\033[37;1m"
-YELLOW	=	"\033[33;1m"
-BLUE	=	"\033[34;1m"
-MAGENT	=	"\033[35;1m"
-CYAN	=	"\033[36;1m"
 LIMITER	=	"\033[0m"
+GREEN	=	"\033[92m"
+RED		=	"\033[91m"
+CYAN	=	"\033[96m"
+YELLOW	=	"\033[93m"
+BLUE	=	"\033[94m"
+MAGENT	=	"\033[95m"
 
 #------------------------------------------------------------------------------#
 #                                 TARGETS                                      #
@@ -44,7 +42,7 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $@
 
 # Compiles sources into objects
-$(BIN_DIR)/%.o: src/%.cpp $(INC)
+$(BIN_DIR)/%.o: src/%.cpp
 	@echo $(MAGENT)[Compiling $<]$(LIMITER) $(GREEN)with$(LIMITER) $(CYAN)[$(CC) $(CFLAGS)]$(LIMITER)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
