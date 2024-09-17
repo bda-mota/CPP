@@ -16,7 +16,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	replace
-SRCS	=	./src/main.cpp
+SRCS	=	./src/main.cpp ./src/Replace.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard /includes/*.hpp)
