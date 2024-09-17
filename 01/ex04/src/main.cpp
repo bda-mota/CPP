@@ -10,13 +10,24 @@ int	main(int argc, char **argv)
 		std::cerr << "Erro ao abrir o arquivo." << std::endl;
 		return 1;
 	}
+	std::ofstream outputFile("out.txt");
+    if (!outputFile) {
+        std::cerr << "Erro ao abrir o arquivo para escrita." << std::endl;
+        return 1;
+    }
 
 	std::string line;
 	while (std::getline(inputFile, line)) {
-		std::cout << line << std::endl;
+		outputFile << line << std::endl;
 	}
 
-	inputFile.close(); // Fecha o arquivo após a leitura
+    if (outputFile.fail()) {
+        std::cerr << "Erro ao gravar no arquivo." << std::endl;
+        return 1;
+    }
+
+	inputFile.close();
+	outputFile.close();
 	return 0;
 }
 
