@@ -9,6 +9,17 @@ namespace utilsReplace {
 		return (1);
 	}
 
+	void	justCopy(std::ifstream& inputFile, std::ofstream& outputFile) {
+		std::string line;
+		
+		while (std::getline(inputFile, line))
+		{
+			outputFile << line << std::endl;
+		}
+		inputFile.close();
+		outputFile.close();
+	}
+
 	void	replaceString(std::string& line, const std::string& s1, const std::string& s2) {
 		
 		std::size_t	pos = 0;
@@ -35,6 +46,13 @@ namespace utilsReplace {
 		}
 		if (!outputFile) {
 			return (utilsReplace::displayError("Erro ao abrir o arquivo para escrita."));
+		}
+		if (s1 == "") {
+			return (utilsReplace::displayError("Search string not allowed."));
+		}
+		if (s1 == s2) {
+			utilsReplace::justCopy(inputFile, outputFile);
+			return (0);
 		}
 
 		std::string line;

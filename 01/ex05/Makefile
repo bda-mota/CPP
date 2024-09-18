@@ -15,8 +15,8 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	replace
-SRCS	=	./src/main.cpp
+NAME	=	harl
+SRCS	=	./src/main.cpp ./src/HumanA.cpp ./src/HumanB.cpp ./src/Weapon.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard /includes/*.hpp)
