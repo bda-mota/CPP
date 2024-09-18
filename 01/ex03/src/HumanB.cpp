@@ -15,5 +15,5 @@ void	HumanB::attack() {
 	if (_weapon)
 		std::cout << "their " << CYAN << _weapon->getType() << "." << RESET << std::endl;
 	else
-		std::cout << CYAN << "no weapon." << RESET << std::endl;
+		std::cout << CYAN << "own fists." << RESET << std::endl;
 }

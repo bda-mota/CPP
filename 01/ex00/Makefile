@@ -15,22 +15,22 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	phonebook
+NAME	=	zombie
 SRCS	=	./src/main.cpp ./src/Zombie.cpp ./src/randomChump.cpp ./src/newZombie.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard /includes/*.hpp)
 
 # Colors
-GREEN	=	"\033[32;1m"
-RED		=	"\033[31;1m"
-CYAN	=	"\033[36;1;3m"
 WHITE_U	=	"\033[37;1;4m"
 WHITE	=	"\033[37;1m"
-YELLOW	=	"\033[33;1m"
-BLUE	=	"\033[34;1m"
-MAGENT	=	"\033[35;1m"
 LIMITER	=	"\033[0m"
+GREEN	=	"\033[92m"
+RED		=	"\033[91m"
+CYAN	=	"\033[96m"
+YELLOW	=	"\033[93m"
+BLUE	=	"\033[94m"
+MAGENT	=	"\033[95m"
 
 #------------------------------------------------------------------------------#
 #                                 TARGETS                                      #
