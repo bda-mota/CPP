@@ -24,6 +24,15 @@ int	main(void)
 	std::cout << MAGENT << "Value pointed to by stringPTR: " << RESET << *stringPTR << std::endl;
 	std::cout << MAGENT << "Value pointed to by stringREF: " << RESET << stringREF << std::endl;
 
+	std::cout << YELLOW << "\n--- Test: Modifying values ---\n\n" << RESET;
+
+	std::cout << MAGENT "string before modified *strPTR: " RESET << strBrain << std::endl;
+	*stringPTR = "Hi! Value changed with *strPTR";
+	std::cout << MAGENT"string after dereferencing: " RESET << strBrain << std::endl;
+	std::cout << MAGENT "string before modified string REF: " RESET << strBrain << std::endl;
+	stringREF = "Hi! Value changed with strREF";
+	std::cout << MAGENT "string after modified string REF: " RESET << strBrain << std::endl;
+
 	std::cout << std::endl;
 
 	return (0);

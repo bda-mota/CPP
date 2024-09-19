@@ -16,7 +16,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	harl
-SRCS	=	./src/main.cpp ./src/HumanA.cpp ./src/HumanB.cpp ./src/Weapon.cpp
+SRCS	=	./src/main.cpp ./src/Harl.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 INC		=	$(wildcard /includes/*.hpp)

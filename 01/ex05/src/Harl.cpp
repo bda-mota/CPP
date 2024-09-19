@@ -1,4 +1,5 @@
 #include "../includes/Harl.hpp"
+#include <iostream>
 
 Harl::Harl() {};
 
@@ -12,11 +13,16 @@ void	Harl::complain(std::string level) {
 		&Harl::info,
 		&Harl::warning,
 		&Harl::error
-	}
+	};
 
 	for (int i = 0; i < 4 ; i++) {
-		
+		if (arrayLevel[i] == level) {
+			(this->*functionArray[i])();
+			return;
+		}
 	}
+
+	std::cout << RED << "Invalid level." << RESET << std::endl;
 }
 
 void	Harl::debug() {
@@ -25,12 +31,12 @@ void	Harl::debug() {
 
 void	Harl::info() {
 	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put \
-	enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
+enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
 void	Harl::warning() {
 	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for \
-	years whereas you started working here since last month." << std::endl;
+years whereas you started working here since last month." << std::endl;
 }
 
 void	Harl::error() {

@@ -5,7 +5,7 @@ HumanB::HumanB(const std::string& name) {
 	this->_weapon = NULL;
 };
 
-HumanB::~HumanB() {};
+HumanB::~HumanB() { std::cout << RED << "Destructor HumanB called " << RESET << std::endl; }
 
 void	HumanB::setWeapon(Weapon& typeWeapon) { _weapon = &typeWeapon; }
 

@@ -8,8 +8,8 @@ Zombie*	zombieHorde( int N, std::string name ) {
 
 	Zombie* horde = new Zombie[N];
 	for (int i = 0; i < N ; i++) {
-		std::cout << "The Zombie " << GREEN << name << RESET << " was born." << std::endl;
 		horde[i].setName(name);
+		std::cout << "The Zombie " << GREEN << name << RESET << " was born." << std::endl;
 	}
 	return horde;
 }
