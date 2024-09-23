@@ -1,7 +1,8 @@
 #include "../includes/Fixed.hpp"
 
 int main( void ) {
-
+	
+	std::cout << YELLOW << " -- Test subject: -- \n" << RESET << std::endl;
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );
@@ -15,6 +16,7 @@ int main( void ) {
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << std::endl;
 	return 0;
 	
 }
