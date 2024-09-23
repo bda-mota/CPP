@@ -17,7 +17,7 @@ Fixed& Fixed::operator=(const Fixed& other) {\
 	return *this;
 }
 
-Fixed::~Fixed( void ) { std::cout << "Default constructor called" << std::endl; }
+Fixed::~Fixed( void ) { std::cout << "Default destructor called" << std::endl; }
 
 int	Fixed::getRawBits( void ) const {
 	std::cout << "getRawBits member function called" << std::endl; 

@@ -15,8 +15,8 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	brain
-SRCS	=	./src/main.cpp
+NAME	=	Fixed
+SRCS	=	./src/main.cpp ./src/Fixed.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 
