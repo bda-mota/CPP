@@ -28,11 +28,11 @@ bool	Fixed::operator>(const Fixed& other) const {
 
 // OPERATORS
 Fixed	Fixed::operator+(const Fixed& other) const {
-	return Fixed(toFloat() + other.toFloat());
+	return (Fixed(toFloat() + other.toFloat()));
 }
 
 Fixed	Fixed::operator-(const Fixed& other) const {
-	return Fixed(toFloat() - other.toFloat());
+	return (Fixed(toFloat() - other.toFloat()));
 }
 
 Fixed	Fixed::operator/(const Fixed& other) const {
@@ -40,14 +40,14 @@ Fixed	Fixed::operator/(const Fixed& other) const {
 		std::cout << RED << "Division by zero is a crime" << RESET<< std::endl;
 		return Fixed(0);
 	}
-    return Fixed(toFloat() / other.toFloat());
+	return (Fixed(toFloat() / other.toFloat()));
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const {
-    return Fixed(toFloat() * other.toFloat());
+	return (Fixed(toFloat() * other.toFloat()));
 }
 
-// OTHERS 
+// OTHERS
 
 Fixed&	Fixed::operator++() {
 	++_fixedNumberValue;
@@ -72,19 +72,19 @@ Fixed	Fixed::operator--(int) {
 }
 
 // MIN
-Fixed& Fixed::min( Fixed& a, Fixed& b ) {
+Fixed&	Fixed::min( Fixed& a, Fixed& b ) {
 	return (a < b ? a : b);
 }
 
-const Fixed& Fixed::min( const Fixed& a, const Fixed& b) {
+const	Fixed& Fixed::min( const Fixed& a, const Fixed& b) {
 	return (a < b ? a : b);
 }
 
 //MAX
-Fixed& Fixed::max( Fixed& a, Fixed& b ) {
+Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
 	return (a > b ? a : b);
 }
 
-const Fixed& Fixed::max( const Fixed& a, const Fixed& b) {
+const	Fixed& Fixed::max( const Fixed& a, const Fixed& b) {
 	return (a > b ? a : b);
 }
