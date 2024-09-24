@@ -14,17 +14,17 @@
 class	Fixed {
 
 public:
-	
+
 	Fixed( void );
-	Fixed( const Fixed& other ); //copy constructor
+	Fixed( const Fixed& other );
 	~Fixed( void );
-	Fixed& operator=( const Fixed& other ); //copy assignment operator
+	Fixed& operator=( const Fixed& other );
 
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 
 private:
-	
+
 	int	_fixedNumberValue;
 	static const int	_fractionalBits = 8;
 

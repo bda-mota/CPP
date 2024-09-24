@@ -9,7 +9,7 @@ Fixed::Fixed(const Fixed& other) {
 	*this = other;
 }
 
-Fixed& Fixed::operator=(const Fixed& other) {\
+Fixed& Fixed::operator=(const Fixed& other) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_fixedNumberValue = other.getRawBits();
@@ -20,7 +20,7 @@ Fixed& Fixed::operator=(const Fixed& other) {\
 Fixed::~Fixed( void ) { std::cout << "Default destructor called" << std::endl; }
 
 int	Fixed::getRawBits( void ) const {
-	std::cout << "getRawBits member function called" << std::endl; 
+	std::cout << "getRawBits member function called" << std::endl;
 	return _fixedNumberValue;
 }
 

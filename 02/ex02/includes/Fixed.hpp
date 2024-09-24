@@ -28,8 +28,6 @@ public:
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 
-	//Assignment operator
-
 	//Aritmetic operators
 	Fixed	operator+(const Fixed& other) const;
 	Fixed	operator-(const Fixed& other) const;
