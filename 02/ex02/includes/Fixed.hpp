@@ -15,7 +15,7 @@
 class	Fixed {
 
 public:
-	
+
 	Fixed( void );
 	Fixed( const int intFixedNumber );
 	Fixed( const float floatFixedNumber );
@@ -38,11 +38,11 @@ public:
 
 	//Comparison operators
 	bool	operator==(const Fixed& other) const;
-	bool	operator!=(const Fixed& other) const; 
-	bool	operator<=(const Fixed& other) const; 
-	bool	operator>=(const Fixed& other) const; 
-	bool	operator<(const Fixed& other) const; 
-	bool	operator>(const Fixed& other) const; 
+	bool	operator!=(const Fixed& other) const;
+	bool	operator<=(const Fixed& other) const;
+	bool	operator>=(const Fixed& other) const;
+	bool	operator<(const Fixed& other) const;
+	bool	operator>(const Fixed& other) const;
 
 	//Others operators
 	Fixed&	operator++(); // ++a
@@ -59,7 +59,7 @@ public:
 	static const Fixed& max( const Fixed& a,  const Fixed& b);
 
 private:
-	
+
 	int	_fixedNumberValue;
 	static const int	_fractionalBits = 8;
 
