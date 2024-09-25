@@ -16,7 +16,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	Claptrap
-SRCS	=	./src/main.cpp ./src/Claptrap.cpp
+SRCS	=	./src/main.cpp ./src/ClapTrap.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 
