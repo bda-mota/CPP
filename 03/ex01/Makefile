@@ -15,8 +15,8 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	Claptrap
-SRCS	=	./src/main.cpp ./src/Claptrap.cpp
+NAME	=	ScavTrap
+SRCS	=	./src/main.cpp ./src/ClapTrap.cpp ./src/ScavTrap.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 
