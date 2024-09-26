@@ -26,6 +26,10 @@ int	main(void)
 	clapTrap2.takeDamage(clapTrap.getAttackDamage());
 	clapTrap2.attack(clapTrap.getName());
 	clapTrap.takeDamage(clapTrap2.getAttackDamage());
+	std::cout << BLUE << " * * * Energy Points * * * " << RESET << std::endl;
+	std::cout << clapTrap.getName() << " has " << clapTrap.getEnergyPoints() << " energy points" << std::endl;
+	std::cout << clapTrap2.getName() << " has " << clapTrap2.getEnergyPoints() << " energy points" << std::endl;
+	std::cout << BLUE << " - - - - - - - -  - - - - -" << RESET << std::endl;
 	clapTrap2.beRepaired(5);
 	clapTrap.beRepaired(5);
 	clapTrap.attack(clapTrap2.getName());
@@ -40,10 +44,13 @@ int	main(void)
 	clapTrap.takeDamage(clapTrap2.getAttackDamage());
 	clapTrap2.beRepaired(5);
 	clapTrap.beRepaired(5);
+	std::cout << BLUE << " * * * Energy Points * * * " << RESET << std::endl;
+	std::cout << clapTrap.getName() << " has " << clapTrap.getEnergyPoints() << " energy points" << std::endl;
+	std::cout << clapTrap2.getName() << " has " << clapTrap2.getEnergyPoints() << " energy points" << std::endl;
+	std::cout << BLUE << " - - - - - - - -  - - - - -" << RESET << std::endl;
 	clapTrap.attack(clapTrap2.getName());
 	clapTrap2.takeDamage(clapTrap.getAttackDamage());
 	clapTrap2.attack(clapTrap.getName());
 	clapTrap.takeDamage(clapTrap2.getAttackDamage());
-
 	return (0);
 }
