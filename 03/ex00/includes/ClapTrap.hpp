@@ -37,6 +37,11 @@ public:
 	int			getEnergyPoints() const;
 	int			getAttackDamage() const;
 
+	void	setName(std::string name);
+	void	setHitPoints( unsigned int amount );
+	void	setEnergyPoints( unsigned int amount );
+	void	setAttackDamage( unsigned int amount );
+
 };
 
 

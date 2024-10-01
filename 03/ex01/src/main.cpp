@@ -5,7 +5,7 @@ int	main(void)
 {
 	std::cout << BLUE << "* * * CREATING SCAVTRAP * * *" << RESET << std::endl;
 	ScavTrap ScavTrap1("CARAMEL");
-	ScavTrap ScavTrap2("jorge");
+	ScavTrap ScavTrap2;
 
 	std::cout << BLUE << "* * * ATTACKING SCAVTRAP * * *" << RESET << std::endl;
 	ScavTrap1.attack(ScavTrap2.getName());
