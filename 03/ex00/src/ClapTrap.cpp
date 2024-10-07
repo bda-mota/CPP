@@ -40,6 +40,12 @@ int	ClapTrap::getHitPoints() const { return _hitPoints; }
 int	ClapTrap::getEnergyPoints() const { return _energyPoints; }
 int	ClapTrap::getAttackDamage() const { return _attackDamage; }
 
+void	ClapTrap::setName(std::string name) { this->_name = name; }
+void	ClapTrap::setHitPoints( unsigned int amount ) {	this->_hitPoints = amount; }
+void	ClapTrap::setEnergyPoints( unsigned int amount ) { this->_energyPoints = amount; }
+void	ClapTrap::setAttackDamage( unsigned int amount ) { this->_attackDamage = amount; }
+
+
 void	ClapTrap::attack( const std::string& target ) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
 		std::cout << "ClapTrap " << this->_name << RED <<" attacks " << RESET << target << ", causing "
@@ -74,5 +80,3 @@ void	ClapTrap::beRepaired( unsigned int amount ) {
 	std::cout << "ClapTrap " << this->_name << GREEN << " repaired " << RESET << amount << " of hit points and now has "
 	<< this->_hitPoints << " hit points!"<< std::endl;
 }
-
-
