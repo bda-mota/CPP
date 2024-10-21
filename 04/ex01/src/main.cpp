@@ -65,5 +65,14 @@ int main()
 		std::cout << "After change - Original Dog Brain: " << originalDog.getBrain()->getBrain(0) << std::endl;
 		std::cout << "After change - Copy Dog Brain: " << copyDog.getBrain()->getBrain(0) << std::endl;
 	}
+	{
+		std::cout << YELLOW << " * * * Test 5: Ideas * * *" << RESET << std::endl;
+		Dog myDog;
+		myDog.getBrain()->setBrain("Chase the ball", 0);
+		myDog.getBrain()->setBrain("Bark at strangers", 1);
+
+		std::cout << "Dog's Brain Ideas:" << std::endl;
+		myDog.getBrain()->printIdeas();
+	}
 	return 0;
 }

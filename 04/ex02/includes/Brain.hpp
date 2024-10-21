@@ -12,8 +12,9 @@ public:
 	Brain& operator=( const Brain& other);
 	~Brain();
 
-	void		setBrain(std::string newIdea, unsigned int index);
+	void	setBrain(std::string newIdea, unsigned int index);
 	std::string	getBrain( unsigned int index ) const;
+	void	printIdeas() const;
 
 private:
 

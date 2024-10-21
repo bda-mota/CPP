@@ -42,3 +42,11 @@ std::string	Brain::getBrain( unsigned int index ) const {
 		return ("Nothing here");
 	}
 }
+
+void Brain::printIdeas() const {
+	for (int i = 0; i < 100; ++i) {
+		if (!_ideas[i].empty()) {
+			std::cout << "Idea " << i << ": " << _ideas[i] << std::endl;
+		}
+	}
+}
