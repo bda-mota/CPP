@@ -1,6 +1,8 @@
 #include "../includes/Animal.hpp"
 #include "../includes/Cat.hpp"
 #include "../includes/Dog.hpp"
+#include "../includes/WrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
 
 int main()
 {
@@ -19,7 +21,7 @@ int main()
 		delete meta;
 		delete i;
 		delete j;
-    }
+	}
 	{
 		std::cout << YELLOW << " * * * Test 2: mix  * * * " << RESET << std::endl;
 
@@ -43,11 +45,54 @@ int main()
 		std::cout << "Another Cat Type: " << anotherCat.getType() << std::endl;
 		anotherCat.makeSound();
 
-		Dog anotherDog;
 		std::cout << MAGENT << "Assignment " << RESET << std::endl;
+		Dog anotherDog;
 		anotherDog = dog;
 		std::cout << "Another Dog Type: " << anotherDog.getType() << std::endl;
 		anotherDog.makeSound();
 	}
-    return 0;
+	{
+		std::cout << YELLOW << " * * * Test 3: WrongAnimal and WrongCat  * * * " << RESET << std::endl;
+
+		WrongAnimal* animals[4];
+
+		std::cout << MAGENT << "Fill WrongCat..." << RESET << std::endl;
+		for (int i = 0; i < 2; i++) {
+			animals[i] = new WrongCat();
+		}
+
+		std::cout << MAGENT << "Fill WrongAnimal..." << RESET << std::endl;
+		for (int i = 2; i < 4; i++) {
+			animals[i] = new WrongAnimal();
+		}
+
+		std::cout << MAGENT << "Make sound..." << RESET << std::endl;
+		for (int i = 0; i < 4; i++) {
+			animals[i]->makeSound();
+		}
+
+		std::cout << MAGENT << "Deleting animals..." << RESET << std::endl;
+		for (int i = 0; i < 4; i++) {
+			delete animals[i];
+		}
+	}
+	{
+		std::cout << YELLOW << " * * * Test 4: WrongCat as WrongCat * * * " << RESET << std::endl;
+		WrongAnimal* animal = new WrongAnimal();
+		WrongCat* cat = new WrongCat();
+
+		std::cout << MAGENT << "Testing WrongAnimal:"<< RESET << std::endl;
+		animal->makeSound();
+
+		std::cout << MAGENT << "Testing WrongCat:"<< RESET << std::endl;
+		cat->makeSound();
+
+		std::cout << MAGENT << "Testing WrongCat as WrongAnimal:" << RESET << std::endl;
+		WrongAnimal* wrongCatAsAnimal = cat;
+		wrongCatAsAnimal->makeSound();
+
+		delete animal;
+		delete cat;
+	}
+	return 0;
 }
