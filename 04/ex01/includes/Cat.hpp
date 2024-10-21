@@ -15,6 +15,7 @@ public:
 	~Cat();
 
 	void	makeSound( void ) const;
+	Brain*	getBrain() const;
 
 private:
 

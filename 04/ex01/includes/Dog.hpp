@@ -15,6 +15,7 @@ public:
 	~Dog();
 
 	void	makeSound( void ) const;
+	Brain*	getBrain() const;
 
 private:
 

@@ -31,5 +31,5 @@ Animal& Animal::operator=( const Animal& other ) {
 std::string	Animal::getType( void ) const { return this->_type; }
 
 void	Animal::makeSound( void ) const {
-	std::cout << "The " << this->_type << " make a sound." << std::endl;
+	std::cout << "Undefined sound." << std::endl;
 }
