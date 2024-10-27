@@ -30,7 +30,6 @@ public:
 	Bureaucrat& operator=( const Bureaucrat& other);
 	~Bureaucrat( void );
 
-
 	class GradeTooHighException : public std::exception {
 		public: 
 		

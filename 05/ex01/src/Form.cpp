@@ -26,13 +26,11 @@ Form&	Form::operator=( const Form &other ) {
 
 Form::~Form( void ) {}
 
-//getters
 const std::string	Form::getFormName( void ) const { return _name; }
 bool		Form::getFormStatus( void ) const { return _isSigned; }
 int			Form::getFormSignGrade( void ) const { return _signGrade; }
 int			Form::getFormExecuteGrade( void ) const { return _executeGrade; }
 
-//overload
 std::ostream& operator<<(std::ostream& os, const Form& form) {
 	std::string	status;
 
@@ -45,7 +43,6 @@ std::ostream& operator<<(std::ostream& os, const Form& form) {
     return os;
 }
 
-//exceptions
 const char* Form::GradeTooHighException::what( void ) const throw() {
 	return "Grade too high";
 }
@@ -54,7 +51,6 @@ const char* Form::GradeTooLowException::what( void ) const throw() {
 	return "Grade too low";
 }
 
-//besigned
 void	Form::beSigned( const Bureaucrat& bureaucrat ) {
 	if (bureaucrat.getGrade() <= getFormSignGrade()) {
 		this->_isSigned = true;
