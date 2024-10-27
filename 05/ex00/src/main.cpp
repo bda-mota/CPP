@@ -44,5 +44,18 @@ int main() {
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
 
+	try {
+		std::cout << YELLOW << "Test - Decrement until throw an exception:" << RESET << std::endl;
+		Bureaucrat roger("roger", 145);
+		std::cout << roger << std::endl;
+		while (roger.getGrade() < 151) {
+			roger.downGrade();
+			std::cout << roger << std::endl;
+		}
+
+	} catch (std::exception& e) {
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+
 	return 0;
 }

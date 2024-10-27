@@ -34,7 +34,7 @@ const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
 }
 
 //Getters
-std::string	Bureaucrat::getName( void ) const { return _name; }
+const std::string	Bureaucrat::getName( void ) const { return _name; }
 int	Bureaucrat::getGrade( void ) const { return _grade; }
 
 //Setters
@@ -54,7 +54,7 @@ void	Bureaucrat::downGrade() {
 
 //Overload
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-    os << "Bureaucrat: " << bureaucrat.getName() << ", Grade: " << bureaucrat.getGrade();
+    os << bureaucrat.getName() << ", bureaucrat grade: " << bureaucrat.getGrade();
     return os;
 }
 
