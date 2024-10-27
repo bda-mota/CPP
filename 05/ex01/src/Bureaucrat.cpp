@@ -16,7 +16,6 @@ Bureaucrat::Bureaucrat( const Bureaucrat& other) {
 
 Bureaucrat& Bureaucrat::operator=( const Bureaucrat& other) {
 	if (this != &other) {
-		const_cast<std::string&>(_name) = other._name;
 		_grade = other._grade;
 	}
 	return *this;
@@ -33,7 +32,7 @@ const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
 }
 
 const std::string	Bureaucrat::getName( void ) const { return _name; }
-int	Bureaucrat::getGrade( void ) const { return _grade; }
+int					Bureaucrat::getGrade( void ) const { return _grade; }
 
 void	Bureaucrat::upGrade() {
 	if (_grade == 1) {
