@@ -27,15 +27,11 @@ int					Form::getFormSignGrade( void ) const { return _signGrade; }
 int					Form::getFormExecuteGrade( void ) const { return _executeGrade; }
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-	std::string	status;
-
-	if (form.getFormStatus() == true) {
-		status = "yes";
-	} else {
-		status = "no";
-	}
-    os << "Form: " << form.getFormName() << ", Sign Grade: " << form.getFormSignGrade() << ", Execute Grade: " << form.getFormExecuteGrade() << ", Signed: " << status ;
-    return os;
+	os << "AForm: " << form.getFormName()
+	<< ", Sign Grade: " << form.getFormSignGrade()
+	<< ", Execute Grade: " << form.getFormExecuteGrade()
+	<< ", Signed: " << (form.getFormStatus() ? "Yes" : "No") ;
+	return os;
 }
 
 const char* Form::GradeTooHighException::what( void ) const throw() {
