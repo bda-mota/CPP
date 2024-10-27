@@ -36,6 +36,12 @@ public:
 		virtual const char* what() const throw();
 	};
 
+		class FormAlreadySignedException : public std::exception {
+		public: 
+		
+		virtual const char* what() const throw();
+	};
+
 	const std::string	getFormName( void ) const;
 	bool				getFormStatus( void ) const;
 	int					getFormSignGrade( void ) const;

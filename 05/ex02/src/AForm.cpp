@@ -35,21 +35,26 @@ std::ostream& operator<<(std::ostream& os, const AForm& form) {
 }
 
 const char* AForm::GradeTooHighException::what( void ) const throw() {
-	return "Grade too high";
+	return "grade too high";
 }
 
 const char* AForm::GradeTooLowException::what( void ) const throw() {
-	return "Grade too low";
+	return "grade too low";
 }
 
 const char* AForm::FormNotSignedException::what( void ) const throw() {
-	return "Form not signed";
+	return "form not signed";
+}
+
+const char* AForm::FormAlreadySignedException::what( void ) const throw() {
+	return "form already signed";
 }
 
 void	AForm::beSigned( const Bureaucrat& bureaucrat ) {
-	if (bureaucrat.getGrade() <= getAFormSignGrade()) {
-		this->_isSigned = true;
-	} else {
+	if (bureaucrat.getGrade() > getAFormSignGrade()) {
 		throw GradeTooLowException();
+	} else if (getAFormStatus()) {
+		throw FormAlreadySignedException();
 	}
+	this->_isSigned = true;
 }
