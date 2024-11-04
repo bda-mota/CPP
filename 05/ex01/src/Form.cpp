@@ -26,7 +26,7 @@ bool				Form::getFormStatus( void ) const { return _isSigned; }
 int					Form::getFormSignGrade( void ) const { return _signGrade; }
 int					Form::getFormExecuteGrade( void ) const { return _executeGrade; }
 
-std::ostream& operator<<(std::ostream& os, const Form& form) {
+std::ostream& operator<<( std::ostream& os, const Form& form ) {
 	os << "AForm: " << form.getFormName()
 	<< ", Sign Grade: " << form.getFormSignGrade()
 	<< ", Execute Grade: " << form.getFormExecuteGrade()

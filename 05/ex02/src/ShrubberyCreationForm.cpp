@@ -20,7 +20,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreation
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void ) {};
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 	if (!getAFormStatus()) {
 		throw FormNotSignedException();
 	} else if (executor.getGrade() > getAFormExecuteGrade()) {

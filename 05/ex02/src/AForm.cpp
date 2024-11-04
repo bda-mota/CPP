@@ -10,7 +10,7 @@ AForm::AForm( std::string name, int signGrade, int executeGrade ) : _name(name),
 	}
 }
 
-AForm::AForm( const AForm &other) : _name(other._name), _isSigned(other._isSigned) , _signGrade(other._signGrade), _executeGrade(other._executeGrade) {}
+AForm::AForm( const AForm &other ) : _name(other._name), _isSigned(other._isSigned) , _signGrade(other._signGrade), _executeGrade(other._executeGrade) {}
 
 AForm&	AForm::operator=( const AForm &other ) {
     if (this != &other) {

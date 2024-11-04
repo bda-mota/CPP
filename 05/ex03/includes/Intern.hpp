@@ -2,6 +2,9 @@
 # define INTERN_HPP
 
 # include <iostream>
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 class	AForm;
 
@@ -14,7 +17,7 @@ public:
 	Intern& operator=( const Intern &other );
 	~Intern( void );
 
-	AForm	*makeForm(const std::string formName, const std::string target);
+	AForm	*makeForm( const std::string formName, const std::string target );
 
 };
 

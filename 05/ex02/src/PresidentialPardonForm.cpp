@@ -20,7 +20,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=( const PresidentialPar
 
 PresidentialPardonForm::~PresidentialPardonForm( void ) {};
 
-void	PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
 	if (!getAFormStatus()) {
 		throw FormNotSignedException();
 	} else if (executor.getGrade() > getAFormExecuteGrade()) {

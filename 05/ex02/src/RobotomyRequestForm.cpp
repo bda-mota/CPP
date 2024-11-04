@@ -20,7 +20,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm &
 
 RobotomyRequestForm::~RobotomyRequestForm( void ) {};
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 	if (!getAFormStatus()) {
 		throw FormNotSignedException();
 	} else if (executor.getGrade() > getAFormExecuteGrade()) {
