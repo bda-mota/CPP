@@ -16,7 +16,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	Bureaucrat
-SRCS	=	./src/main.cpp ./src/Bureaucrat.cpp ./src/AForm.cpp ./src/PresidentialPardonForm.cpp ./src/RobotomyRequestForm.cpp ./src/ShrubberyCreationForm.cpp
+SRCS	=	./src/main.cpp ./src/Intern.cpp ./src/Bureaucrat.cpp ./src/AForm.cpp ./src/PresidentialPardonForm.cpp ./src/RobotomyRequestForm.cpp ./src/ShrubberyCreationForm.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 

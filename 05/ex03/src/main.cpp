@@ -1,69 +1,31 @@
+#include "../includes/Intern.hpp"
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/AForm.hpp"
-#include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
+#include <iostream>
 
 int main() {
-	try {
-		std::cout << MAGENT << "Create a Bureaucrat " << RESET << std::endl;
-		Bureaucrat roger("Roger", 50);
-		std::cout << roger << std::endl;
+	Intern intern;
+	Bureaucrat bob("Bob", 1);
+	std::string formNames[] = {"presidential pardon", "robotomy request", "shrubbery creation", "invalid form"};
+	
+	for (int i = 0; i < 4; ++i) {
+		const std::string &formName = formNames[i];
+		AForm *form = intern.makeForm(formName, "Target");
 
-		std::cout << MAGENT << "Create forms " << RESET << std::endl;
-		ShrubberyCreationForm shrubForm("home");
-		RobotomyRequestForm robotForm("target1");
-		PresidentialPardonForm pardonForm("target2");
-
-		std::cout << shrubForm << std::endl;
-		std::cout << robotForm << std::endl;
-		std::cout << pardonForm << std::endl;
-
-		std::cout << MAGENT << "Signing forms..." << RESET << std::endl;
-		roger.signForm(shrubForm);
-		roger.signForm(robotForm);
-		roger.signForm(pardonForm);
-
-		std::cout << MAGENT << "Increment grade of Bureaucrat " << RESET << std::endl;
-		roger.upGrade();
-		roger.upGrade();
-		roger.signForm(robotForm);
-		roger.signForm(shrubForm);
-		roger.signForm(pardonForm);
-
-		std::cout << MAGENT << "Incrementing... " << RESET << std::endl;
-		for (int i = 0; i < 10; ++i) {
-			roger.upGrade();
+		if (form) {
+			try {
+				bob.signForm(*form);
+				bob.executeForm(*form);
+			} catch (std::exception &e) {
+				std::cerr << RED << "Erro: " << e.what() << RESET << std::endl;
+			}
+			delete form;
+		} else {
+			std::cout << RED << "Fail to create form: " << RESET << formName << std::endl;
 		}
-		std::cout << roger << std::endl;
-
-		std::cout << MAGENT << "Trying sign again " << RESET << std::endl;
-		roger.signForm(shrubForm); 
-		roger.signForm(pardonForm); 
-
-		std::cout << MAGENT << "Execute " << RESET << std::endl;
-		roger.executeForm(shrubForm);
-		roger.executeForm(robotForm);
-		roger.executeForm(pardonForm);
-
-	} catch (const std::exception &e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	std::cout << YELLOW << "Test - Invalid Grade: " << RESET << std::endl;
-	try {
-		Bureaucrat lowBureaucrat("LowBob", 151);
-	} catch (const std::exception &e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	std::cout << YELLOW << "Test - Try execute a form not signed: " << RESET << std::endl;
-	ShrubberyCreationForm shrubForm("home");
-	try {
-		Bureaucrat anotherBureaucrat("Alice", 30);
-		anotherBureaucrat.executeForm(shrubForm);
-	} catch (const std::exception &e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << YELLOW << "------------------------------------" << RESET << std::endl;
 	}
 
 	return 0;

@@ -20,7 +20,7 @@ AForm	*Intern::makeForm( const std::string formName, const std::string target ) 
 
 	for ( int i = 0; i < 3 ; i++ ) {
 		if ( formName == forms[i] ) {
-			std::cout << "Intern create " << formName << std::endl;
+			std::cout << "Intern creates " << formName << std::endl;
 			switch (i)
 			{
 				case 0:
@@ -29,10 +29,9 @@ AForm	*Intern::makeForm( const std::string formName, const std::string target ) 
 					return new RobotomyRequestForm(target);
 				case 2:
 					return new ShrubberyCreationForm(target);
-				default:
 			}
 		}
 	}
-	std::cout << formName << " is a invalid form!" << std::endl;
+	std::cout << formName << " is a invalid!" << std::endl;
 	return NULL;
 }

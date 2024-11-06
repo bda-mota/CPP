@@ -21,6 +21,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm &
 RobotomyRequestForm::~RobotomyRequestForm( void ) {};
 
 void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
+	srand(time(0));
 	if (!getAFormStatus()) {
 		throw FormNotSignedException();
 	} else if (executor.getGrade() > getAFormExecuteGrade()) {
@@ -29,7 +30,7 @@ void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 
 	std::cout << "grunf, grunf, grunf..." << std::endl;
 
-	if (rand() % 2 == 0) {
+	if (rand() % 2 != 0) {
 		std::cout << _target << " has been robotomized." << std::endl;
 	} else {
 		std::cout << "Rotobomy has failed." << std::endl;
