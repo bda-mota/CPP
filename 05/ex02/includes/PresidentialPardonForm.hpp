@@ -20,7 +20,6 @@ public:
 	~PresidentialPardonForm( void );
 
 	void	execute( Bureaucrat const & executor ) const;
-
 };
 
 #endif

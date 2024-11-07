@@ -25,20 +25,17 @@ public:
 	~Form( void );
 
 	class GradeTooHighException : public std::exception {
-		public: 
-		
+		public: 	
 		virtual const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception {
 		public: 
-		
 		virtual const char* what() const throw();
 	};
 
-		class FormAlreadySignedException : public std::exception {
+	class FormAlreadySignedException : public std::exception {
 		public: 
-		
 		virtual const char* what() const throw();
 	};
 

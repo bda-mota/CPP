@@ -21,7 +21,6 @@ public:
 	~ShrubberyCreationForm( void );
 
 	void	execute( Bureaucrat const & executor ) const;
-
 };
 
 #endif
