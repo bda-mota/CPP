@@ -1,0 +1,30 @@
+#ifndef SCALAR_CONVERTER_HPP
+# define SCALAR_CONVERTER_HPP
+
+# include <iostream>
+
+# define GREEN	"\033[92m"
+# define RED	"\033[91m"
+# define CYAN	"\033[96m"
+# define YELLOW	"\033[93m"
+# define BLUE	"\033[94m"
+# define MAGENT	"\033[95m"
+# define RESET	"\033[0m"
+
+class Form;
+
+class	ScalarConverter {
+
+public:
+
+	ScalarConverter( void );
+	ScalarConverter( std::string const name, int grade );
+	ScalarConverter( const ScalarConverter& other );
+	ScalarConverter& operator=( const ScalarConverter& other );
+	~ScalarConverter( void );
+
+};
+
+std::ostream& operator<<( std::ostream& os, const ScalarConverter& bureaucrat );
+
+#endif
