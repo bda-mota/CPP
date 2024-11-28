@@ -11,20 +11,27 @@
 # define MAGENT	"\033[95m"
 # define RESET	"\033[0m"
 
-class Form;
-
+enum Types {
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	IMPOSSIBLE,
+	NON_DISP
+};
 class	ScalarConverter {
 
-public:
+private:
 
 	ScalarConverter( void );
-	ScalarConverter( std::string const name, int grade );
 	ScalarConverter( const ScalarConverter& other );
 	ScalarConverter& operator=( const ScalarConverter& other );
 	~ScalarConverter( void );
 
-};
+public:
 
-std::ostream& operator<<( std::ostream& os, const ScalarConverter& bureaucrat );
+	static void convert( std::string const& data );
+
+};
 
 #endif
