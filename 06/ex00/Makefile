@@ -16,7 +16,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	ScalarConverter
-SRCS	=	./src/main.cpp ./src/ScalarConverter.cpp
+SRCS	=	./src/main.cpp ./src/ScalarConverter.cpp ./src/findType.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 

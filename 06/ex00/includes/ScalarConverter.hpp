@@ -2,6 +2,7 @@
 # define SCALAR_CONVERTER_HPP
 
 # include <iostream>
+# include <sstream>
 
 # define GREEN	"\033[92m"
 # define RED	"\033[91m"
@@ -11,26 +12,18 @@
 # define MAGENT	"\033[95m"
 # define RESET	"\033[0m"
 
-enum Types {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	IMPOSSIBLE,
-	NON_DISP
-};
 class	ScalarConverter {
 
 private:
 
-	ScalarConverter( void );
-	ScalarConverter( const ScalarConverter& other );
-	ScalarConverter& operator=( const ScalarConverter& other );
-	~ScalarConverter( void );
+	ScalarConverter(void);
+	ScalarConverter(const ScalarConverter& other);
+	ScalarConverter& operator=(const ScalarConverter& other);
+	~ScalarConverter(void);
 
 public:
 
-	static void convert( std::string const& data );
+	static void convert(std::string const& data);
 
 };
 
