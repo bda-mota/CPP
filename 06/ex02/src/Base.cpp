@@ -8,7 +8,7 @@ Base*	generate(void) {
 		onlyOne = false;
 	}
 
-	switch ( rand() % 3 )
+	switch (rand() % 3)
 	{
 		case 0:
 			return new A;
@@ -22,27 +22,37 @@ Base*	generate(void) {
 }
 
 void	identify(Base* p) {
-	if (isA(p)) {
-		std::cout << "is base A" << std::endl;
-	} else if (isB(p)) {
-		std::cout << "is base B" << std::endl;
-	} else if (isC(p)) {	
-		std::cout << "is base C" << std::endl;
+	if (dynamic_cast<A*>(p)) {
+		std::cout << "is base A (pointer)." << std::endl;
+	} else if (dynamic_cast<B*>(p)) {
+		std::cout << "is base B (pointer)." << std::endl;
+	} else if (dynamic_cast<C*>(p)) {	
+		std::cout << "is base C (pointer)." << std::endl;
 	} else  {
-		std::cout << "is invalid base" << std::endl;
+		std::cout << RED << "dinamic_cast returned null, so is invalid base (pointer)." << RESET << std::endl;
 	} 
 }
 
 void	identify(Base& p) {
-	if (isA(p)) {
-		std::cout << "is base A" << std::endl;
-	} else if (isB(p)) {
-		std::cout << "is base B" << std::endl;
-	} else if (isC(p)) {
-		std::cout << "is base C" << std::endl;
-	} else  {
-		std::cout << "is invalid base" << std::endl;
-	} 
+	try {
+		dynamic_cast<A&>(p);
+		std::cout << "is base A (reference)." << std::endl; 
+		return ;
+	} catch (const std::exception& e) {}
+
+	try {
+		dynamic_cast<B&>(p);
+		std::cout << "is base B (reference)." << std::endl; 
+		return ;
+	} catch (const std::exception& e) {}
+
+	try {
+		dynamic_cast<C&>(p);
+		std::cout << "is base C (reference)." << std::endl; 
+		return ;
+	} catch (const std::exception& e) {}
+ 
+	std::cout << RED << "is invalid base (reference)." << RESET << std::endl;
 }
 
-Base::~Base( void ) {}
+Base::~Base(void) {}

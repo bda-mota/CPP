@@ -12,12 +12,12 @@ private:
 
 public:
 
-	Data( void );
-	Data( const Data& other );
-	Data& operator=( const Data& other );
-	~Data( void );
+	Data(void);
+	Data(const Data& other);
+	Data& operator=(const Data& other);
+	~Data(void);
 
-	uint32_t	getData( void );
+	uint32_t	getData(void);
 };
 
 #endif

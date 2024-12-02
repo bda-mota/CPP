@@ -5,7 +5,4 @@
 
 class B : public Base {};
 
-bool isB(Base* ptr);
-bool isB(Base& ref);
-
 #endif
