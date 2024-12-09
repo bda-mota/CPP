@@ -15,5 +15,9 @@ enum Type {
 
 Type	identifyType(std::string data);
 void	convertAndPrint(Type type, std::string data);
+void	charactersRange(double c);
+void	intsRange(int nbrI, double nbrD);
+void	floatsRange(float nbrI, double nbrD);
+
 
 #endif
