@@ -64,3 +64,13 @@ fclean: clean
 
 # Removes objects and executables and remakes
 re: fclean all
+
+# Execute tests
+test: $(NAME)
+	@if [ -f ./tests.sh ]; then \
+		echo $(BLUE)[Running tests with tests.sh]$(LIMITER); \
+		chmod +x tests.sh; \
+		./tests.sh && ./$(NAME) \
+	else \
+		echo $(RED)[Error: tests.sh not found]$(LIMITER); \
+	fi

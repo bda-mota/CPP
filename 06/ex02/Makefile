@@ -15,8 +15,8 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	Serializer
-SRCS	=	./src/main.cpp ./src/Serializer.cpp
+NAME	=	Base
+SRCS	=	./src/main.cpp ./src/Base.cpp ./src/functions.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 

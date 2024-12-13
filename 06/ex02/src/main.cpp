@@ -1,8 +1,11 @@
 #include "../includes/Base.hpp"
+#include "../includes/functions.hpp"
+#include "../includes/A.hpp"
+#include "../includes/B.hpp"
+#include "../includes/C.hpp"
 
 int main( void )
 {
-
 	std::cout << BLUE << std::endl;
 	std::cout << "---------------------------------------------------------\n";
 	std::cout << MAGENT;
@@ -10,7 +13,7 @@ int main( void )
 	std::cout << BLUE;
 	std::cout << "---------------------------------------------------------\n";
 
-	 for (int i = 0; i < 10; i++)
+	 for (int i = 0; i < 5; i++)
 	 {
 		std::cout << CYAN;
 		std::cout << "-> TEST " << i + 1 << std::endl;
@@ -32,7 +35,7 @@ int main( void )
 		std::cout << "---------------------------------------------------------\n";
 	}
 
-	std::cout << "-> TEST 11" << std::endl;
+	std::cout << "-> TEST 6" << std::endl;
 	std::cout << "---------------------------------------------------------\n";
 	std::cout << YELLOW <<"Generating base class..." << GREEN << std::endl;
 	Base *base = new Base();
@@ -46,14 +49,5 @@ int main( void )
 
 	delete base;
 
-	std::cout << BLUE << std::endl;
-	std::cout << "---------------------------------------------------------\n";
-	std::cout << MAGENT;
-	std::cout << "---------------------- END OF TEST ----------------------\n";
-	std::cout << BLUE;
-	std::cout << "---------------------------------------------------------\n";
-	std::cout << RESET << std::endl;
-
 	return 0;
 }
-

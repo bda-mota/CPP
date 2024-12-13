@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <sstream>
+# include <limits>
 
 # define GREEN	"\033[92m"
 # define RED	"\033[91m"

@@ -15,11 +15,11 @@ Type	identifyType(const std::string& data) {
 	return UNKNOWN;
 }
 
-static bool	isChar(const std::string& data) {
+bool	isChar(const std::string& data) {
 	return data.length() == 1 && std::isalpha(data[0]);
 }
 
-static bool	isInt(const std::string& data) {
+bool	isInt(const std::string& data) {
 	int	intValue;
 	std::istringstream iss(data);
 
@@ -30,7 +30,7 @@ static bool	isInt(const std::string& data) {
 	return true;
 }
 
-static bool	isFloat(const std::string& data) {
+bool	isFloat(const std::string& data) {
 	if (data[data.length() - 1] != 'f') {
 		return false;
 	}
@@ -56,8 +56,7 @@ static bool	isFloat(const std::string& data) {
 	return true;
 }
 
-
-static bool	isDouble(const std::string& data) {
+bool	isDouble(const std::string& data) {
 	if (data[data.length() - 1] == 'f') {
 		return false; 
 	}
@@ -83,9 +82,7 @@ static bool	isDouble(const std::string& data) {
 	return true;
 }
 
-
-static bool	isPseudoLiteral(const std::string &input)
-{
+bool	isPseudoLiteral(const std::string &input) {
     if (input == "+inf" || input == "-inf" || input == "nan"
     || input == "+inff" || input == "-inff" || input == "nanf")
         return (true);

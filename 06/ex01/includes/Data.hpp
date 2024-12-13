@@ -8,16 +8,23 @@ class	Data {
 
 private:
 
-	uint32_t	_data;
+	std::string	_name;
+	uint32_t	_value;
 
 public:
 
 	Data(void);
+	Data(std::string name, uint32_t value);
 	Data(const Data& other);
 	Data& operator=(const Data& other);
 	~Data(void);
 
-	uint32_t	getData(void);
+	std::string getName(void) const;
+	uint32_t	getValue(void) const;
+
 };
+
+std::ostream& operator<<( std::ostream& os, const Data& data );
+
 
 #endif

@@ -1,13 +1,9 @@
 #include "../includes/ScalarConverter.hpp"
+#include "../includes/auxiliaries.hpp"
 
-int main(void)
-{   
-    std::string input;
-
-    std::cout << "Enter a literal to convert: ";
-    std::getline(std::cin, input);
-
-    ScalarConverter::convert(input);
-
+int main(int argc, char **argv) {
+	if (argc == 2) {
+    	ScalarConverter::convert(argv[1]);
+	}
     return (0);
 }

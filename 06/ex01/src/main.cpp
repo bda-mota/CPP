@@ -16,8 +16,8 @@ int main(void)
 	std::cout << BLUE;
 	std::cout << "---------------------------------------------------------\n";
 
-	Data before(42);
-	std::cout << "Data is in pointer: \t\t" << PURPLE << before << "\n\n";
+	Data before("beatriz", 42);
+	std::cout << "Data is in pointer: \t" << MAGENT << &before << "\n\n";
 	std::cout << before;
 
 	std::cout << BLUE << std::endl;
@@ -28,8 +28,8 @@ int main(void)
 	std::cout << BLUE;
 	std::cout << "---------------------------------------------------------\n";
 
-	uintptr_t raw = Serializer::serialize(before);
-	std::cout << "Raw pointer is: \t\t" << raw << std::endl;
+	uintptr_t raw = Serializer::serialize(&before);
+	std::cout << "Raw pointer is: \t" << MAGENT << raw << std::endl;
 
 
 	std::cout << BLUE << std::endl;
@@ -42,8 +42,8 @@ int main(void)
 	std::cout << BLUE;
 	std::cout << "---------------------------------------------------------\n";
 
-	Data after = Serializer::deserialize(raw);
-	std::cout << "Data is still pointing at: \t" << PURPLE << after << "\n\n";
+	Data* after = Serializer::deserialize(raw);
+	std::cout << "Data is still pointing at: \t" << MAGENT << after << "\n\n";
 	std::cout << after;
 
 	std::cout << BLUE << std::endl;
@@ -52,14 +52,6 @@ int main(void)
 	std::cout << "Deleting data instance..." << std::endl;
 	std::cout << BLUE;
 	std::cout << "---------------------------------------------------------\n";
-
-	std::cout << BLUE << std::endl;
-	std::cout << "---------------------------------------------------------\n";
-	std::cout << MAGENT;
-	std::cout << "---------------------- END OF TEST ----------------------\n";
-	std::cout << BLUE;
-	std::cout << "---------------------------------------------------------\n";
-	std::cout << RESET << std::endl;
 
 	return 0;
 }
