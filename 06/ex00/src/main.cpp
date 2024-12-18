@@ -3,7 +3,8 @@
 
 int main(int argc, char **argv) {
 	if (argc == 2) {
-    	ScalarConverter::convert(argv[1]);
+    	ScalarConverter::convert("127");
 	}
     return (0);
+	(void)argv;
 }

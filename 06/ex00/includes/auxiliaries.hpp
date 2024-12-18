@@ -19,6 +19,7 @@ bool	isFloat(const std::string& data);
 bool	isDouble(const std::string& data);
 bool	isPseudoLiteral(const std::string &input);
 void	convertAndPrint(Type type, std::string data);
+void	printImpossible(std::string data);
 void	printChar(std::string data);
 void	printInt(std::string data);
 void	printFloat(std::string data);
@@ -27,5 +28,6 @@ void	printPseudoLiteral(std::string input);
 void	charactersRange(double c);
 void	intsRange(int nbr, double doubleNbr);
 void	floatsRange(float nbr, double doubleNbr);
+void	doublesRange(double doubleNbr);
 
 #endif

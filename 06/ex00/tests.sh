@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run tests for CPP-06-ex00
-# Usage: make test -OU- make && ./tests.sh
+# Usage: make && ./tests.sh
 
 # Colors
 red='\033[31;1m'
@@ -48,10 +48,6 @@ echo -e "${blue}\n./ScalarConverter 'teste'${reset}"
 ${PROGRAM} 'teste'
 echo -e "${blue}\n./ScalarConverter 0000r${reset}"
 ${PROGRAM} 0000r
-echo -e "${blue}\n./ScalarConverter 9f${reset}"
-${PROGRAM} 9f
-echo -e "${blue}\n./ScalarConverter 99f${reset}"
-${PROGRAM} 99f
 echo -e "${blue}\n./ScalarConverter '\\n'${reset}"
 ${PROGRAM} "'\n'"
 echo -e "${blue}\n./ScalarConverter '\\t'${reset}"

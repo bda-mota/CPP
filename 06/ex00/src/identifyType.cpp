@@ -2,17 +2,19 @@
 #include "../includes/auxiliaries.hpp"
 
 Type	identifyType(const std::string& data) {
-	if (isChar(data)) {
-		return CHAR; }
-	if (isInt(data)) {
-		return INT; }
-	if (isFloat(data)) {
-		return FLOAT; }
-	if (isDouble(data)) {
-		return DOUBLE; }
 	if (isPseudoLiteral(data)) {
-		return PSEUDOLITERAL; }
-	return UNKNOWN;
+		return PSEUDOLITERAL; 
+	} else if (isChar(data)) {
+		return CHAR; 
+	} else if (isInt(data)) {
+		return INT; 
+	} else if (isFloat(data)) {
+		return FLOAT; 
+	} else if (isDouble(data)) {
+		return DOUBLE; 
+	}  else {
+		return UNKNOWN;
+	}
 }
 
 bool	isChar(const std::string& data) {
@@ -46,7 +48,7 @@ bool	isFloat(const std::string& data) {
 		return false;
 	}
 
-	int	floatValue;
+	float	floatValue;
 	std::istringstream iss(data);
 
 	iss >> floatValue;
@@ -72,7 +74,7 @@ bool	isDouble(const std::string& data) {
 		return false;
 	}
 
-	int	doubleValue;
+	double	doubleValue;
 	std::istringstream iss(data);
 
 	iss >> doubleValue;

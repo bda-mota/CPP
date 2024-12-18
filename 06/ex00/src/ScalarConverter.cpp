@@ -17,7 +17,7 @@ ScalarConverter::~ScalarConverter(void) {};
 void	ScalarConverter::convert(std::string const& data) {
 	std::string input;
 
-	size_t	start = data.find_first_not_of(" \t");
+	size_t start = data.find_first_not_of(" \t");
 	size_t end = data.find_last_not_of(" \t");
 
 	if (start != std::string::npos && end != std::string::npos) {

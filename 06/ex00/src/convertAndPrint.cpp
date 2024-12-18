@@ -19,9 +19,26 @@ void	convertAndPrint(Type type, std::string data) {
 			printPseudoLiteral(data);
 			break;
 		case UNKNOWN:
-			std::cout << "impossible to convert to any type." << std::endl;
+			printImpossible(data);
+			break;
 	}
 	
+}
+
+void	printImpossible(std::string data) {
+	float tryFloat;
+	double tryDouble;
+
+	std::istringstream f(data);
+	std::istringstream d(data);
+
+	f >> tryFloat;
+	d >> tryDouble;
+
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	floatsRange(static_cast<float>(tryFloat), static_cast<double>(tryFloat));
+	doublesRange(static_cast<double>(tryDouble));
 }
 
 void	printChar(std::string data) {
@@ -57,7 +74,7 @@ void	printFloat(std::string data) {
 }
 
 void	printDouble(std::string data) {
-	float nbr;
+	double nbr;
 	std::istringstream iss(data);
 
 	iss >> nbr;
@@ -68,8 +85,8 @@ void	printDouble(std::string data) {
 }
 
 void printPseudoLiteral(std::string input) {
-    std::cout << "char: off limits, impossible to convert to char." << std::endl;
-    std::cout << "int: off limits, impossible to convert to int." << std::endl;
+    std::cout << "char: impossible " << std::endl;
+    std::cout << "int: impossible " << std::endl;
     
     if (input == "+inff" || input == "+inf") {
         std::cout << "float: +inff" << std::endl;
