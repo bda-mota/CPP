@@ -1,5 +1,5 @@
 #include "../includes/Array.hpp"
-#include "../includes/Array.tpp"
+#include "./Array.tpp"
 #include <iostream>
 
 #define BRIGHT_CYAN   "\033[96m"

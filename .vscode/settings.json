@@ -48,7 +48,6 @@
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp",
-		"*.tpp": "cpp"
+		"typeinfo": "cpp"
 	}
 }
