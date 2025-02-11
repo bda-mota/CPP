@@ -1,67 +1,42 @@
 #include "../includes/easyfind.hpp"
+#include <iostream>
+#include <vector>
+#include <list>
+#include <deque>
+#include <set>
+#include <algorithm>  // para std::find
+#include <exception>  // para std::out_of_range
+
 
 int main() {
     try {
-        // Testando com um std::vector
         std::vector<int> vec;
-        for (int i = 1; i <= 5; ++i) vec.push_back(i); // Preenche o vetor: 1, 2, 3, 4, 5
+        vec.push_back(1);
+        vec.push_back(2);
+        vec.push_back(3);
+        vec.push_back(4);
+        vec.push_back(5);
+        std::cout << "Searching for 3 in vector: " << *easyfind(vec, 3) << std::endl;
 
-        std::cout << "Vector test: ";
-        for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-            std::cout << *it << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "Searching for 3 in vector... ";
-        std::vector<int>::iterator found = easyfind(vec, 3);
-        std::cout << "Found: " << *found << std::endl;
-
-        std::cout << "Searching for 10 in vector... ";
-        easyfind(vec, 10); // Vai lançar exceção
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
-    }
-
-    try {
-        // Testando com um std::list
         std::list<int> lst;
-        for (int i = 10; i <= 15; ++i) lst.push_back(i); // Preenche a lista: 10, 11, 12, 13, 14, 15
+        lst.push_back(10);
+        lst.push_back(20);
+        lst.push_back(30);
+        lst.push_back(40);
+        lst.push_back(50);
+        std::cout << "Searching for 20 in list: " << *easyfind(lst, 20) << std::endl;
 
-        std::cout << "\nList test: ";
-        for (std::list<int>::const_iterator it = lst.begin(); it != lst.end(); ++it) {
-            std::cout << *it << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "Searching for 12 in list... ";
-        std::list<int>::iterator found = easyfind(lst, 12);
-        std::cout << "Found: " << *found << std::endl;
-
-        std::cout << "Searching for 20 in list... ";
-        easyfind(lst, 20); // Vai lançar exceção
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
-    }
-
-    try {
-        // Testando com um std::deque
         std::deque<int> deq;
-        for (int i = -5; i <= -1; ++i) deq.push_back(i); // Preenche o deque: -5, -4, -3, -2, -1
+        deq.push_back(100);
+        deq.push_back(200);
+        deq.push_back(300);
+        std::cout << "Searching for 200 in deque: " << *easyfind(deq, 200) << std::endl;
 
-        std::cout << "\nDeque test: ";
-        for (std::deque<int>::const_iterator it = deq.begin(); it != deq.end(); ++it) {
-            std::cout << *it << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "Searching for -3 in deque... ";
-        std::deque<int>::iterator found = easyfind(deq, -3);
-        std::cout << "Found: " << *found << std::endl;
-
-        std::cout << "Searching for 0 in deque... ";
-        easyfind(deq, 0); // Vai lançar exceção
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        // Exemplo que gera uma exceção
+        std::cout << "Searching for 99 in vector: " << *easyfind(vec, 99) << std::endl;
+    }
+    catch (const std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
     }
 
     return 0;
