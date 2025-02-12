@@ -3,7 +3,7 @@
 
 # define CYAN	"\033[96m"
 # define MAGENT	"\033[95m"
-#define RESET   "\033[0m"
+# define RESET   "\033[0m"
 
 int main(int, char**) {
     std::cout << MAGENT " =============== TEST 1: WITH INT ARRAY =============== " RESET << std::endl;
