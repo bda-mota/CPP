@@ -1,12 +1,4 @@
 #include "../includes/easyfind.hpp"
-#include <iostream>
-#include <vector>
-#include <list>
-#include <deque>
-#include <set>
-#include <algorithm>
-#include <exception> 
-
 
 template <typename T>
 void printContainer(const T& container) {

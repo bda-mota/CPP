@@ -1,5 +1,4 @@
 #include "../includes/Span.hpp"
-#include <iostream>
 
 int main() {
 	std::cout << MAGENT " ============ TEST 1: TEST OF SUBJECT ============ " RESET << std::endl;
