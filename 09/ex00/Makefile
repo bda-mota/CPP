@@ -15,8 +15,8 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	Arrays
-SRCS	=	./src/main.cpp
+NAME	=	btc
+SRCS	=	./src/main.cpp ./src/BitcoinExchange.cpp ./src/auxiliaries.cpp
 BIN_DIR =	./bin
 OBJS	=	$(addprefix $(BIN_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 
