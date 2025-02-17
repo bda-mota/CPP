@@ -11,6 +11,8 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
+std::map<std::string, float> BitcoinExchange::getData(void) const { return _data; }
+
 // METHODS
 
 void BitcoinExchange::fillReferenceContainer(std::string dataFile) {
@@ -45,7 +47,6 @@ void BitcoinExchange::fillReferenceContainer(std::string dataFile) {
 
 void BitcoinExchange::parsingInputFile(std::string filename) {
 	std::string line;
-	
 	std::ifstream file(filename.c_str());
 
 	if (!file.is_open()) {
@@ -59,6 +60,11 @@ void BitcoinExchange::parsingInputFile(std::string filename) {
 	}
 
 	while (std::getline(file, line)) {
+		if (line.empty()) {
+			std::cout << "Error: bad input => empty line." << line << std::endl;
+			continue;
+		}
+
 		size_t pos = line.find('|');	
 		if (pos == std::string::npos) {
 			std::cout << "Error: bad input => " << line << std::endl;
@@ -67,30 +73,48 @@ void BitcoinExchange::parsingInputFile(std::string filename) {
 
 		std::string date = line.substr(0, pos);
 		std::string amount = line.substr(pos + 1);
-
 		removeSpaces(date);
 		removeSpaces(amount);
-		try {
-			checkValue(amount);
-		} catch (std::exception &e) {
-			std::cout << "Error: " << e.what() << std::endl;
+		if (validateInput(date, amount)) {
 			continue;
 		}
-		try {
-			checkDate(date);
-		} catch (std::exception &e) {
-			std::cout << "Error: " << e.what() << std::endl;
-			continue;
-		}
-		//procurar data no map, se n achar, buscar a anterior mais próxima
-		//calcular valor
-		//if (_data.find(date) == _data.end()) {
-		//	throw InvalidInputData();
-		//}
-		//std::cout << date << " => " << amount << " = " << _data[date] << std::endl;
+
+		float referenceRate = findClosestRate(_data, date);
+		float amountValue = atof(amount.c_str());
+		std::cout << date << " => " << amountValue << " = " << amountValue * referenceRate << std::endl;
 	}
 
 	file.close();
+}
+
+int	BitcoinExchange::validateInput(std::string date, std::string amount) {	
+	try {
+		checkValue(amount);
+	} catch (std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+		return 1;
+	}
+	try {
+		checkDate(date);
+	} catch (std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+		return 1;
+	}
+	return 0;
+}
+
+float	BitcoinExchange::findClosestRate(const std::map<std::string, float> &data, const std::string &date) {
+    std::map<std::string, float>::const_iterator it = data.lower_bound(date);
+
+    if (it != data.end() && it->first == date) {
+        return it->second;
+    }
+
+    if (it != data.begin()) {
+        --it;
+        return it->second;
+    }
+	return it->second;
 }
 
 // EXCEPTIONS
@@ -110,4 +134,3 @@ const char* BitcoinExchange::InvalidInputData::what() const throw() {
 const char* BitcoinExchange::InvalidInputHeader::what() const throw() {
 	return "Invalid header, must be: date | value";
 }
-

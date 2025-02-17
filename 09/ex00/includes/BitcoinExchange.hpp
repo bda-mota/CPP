@@ -14,14 +14,17 @@ private:
 	std::map<std::string, float> _data;
 
 public:
-	BitcoinExchange();
+	BitcoinExchange(void);
 	BitcoinExchange(const BitcoinExchange &other);
 	BitcoinExchange &operator=(const BitcoinExchange &other);
 	~BitcoinExchange();
 
+	std::map<std::string, float> getData(void) const;
 	void	fillReferenceContainer(std::string dataFile);
 	void	parsingInputFile(std::string filename);
 	float	calculateValue(float referenceRate, float amount);
+	int		validateInput(std::string date, std::string amount);
+	float	findClosestRate(const std::map<std::string, float> &data, const std::string &date);
 
 	class InvalidReferenceData : public std::exception {
 	public:
