@@ -18,6 +18,27 @@ void	RPN::run(std::string expression) {
 	if (!isValidInput(expression)) {
 		throw InvalidExpression();
 	}
+
+	std::string str;
+	std::istringstream iss(expression);
+	while (iss >> str) {
+		if (isValidNumber(str)) {
+			_stack.push(std::atof(str.c_str()));
+		} else if (isOperator(str)) {
+			if (_stack.size() < 2) {
+				throw InvalidExpression();
+			}
+			float a = _stack.top();
+			_stack.pop();
+			float b = _stack.top();
+			_stack.pop();
+			_stack.push(calculator(b, a, str[0]));
+		}
+	}
+	if (_stack.size() != 1) {
+		throw std::runtime_error("Invalid expression.");
+	}
+	std::cout << _stack.top() << std::endl;
 }
 
 bool	RPN::isValidInput(std::string expression) {
@@ -30,6 +51,24 @@ bool	RPN::isValidInput(std::string expression) {
 		}
 	}
 	return true;
+}
+
+float	RPN::calculator(float a, float b, const char op) {
+	switch (op) {
+		case '+':
+			return a + b;
+		case '-':
+			return a - b;
+		case '*':
+			return a * b;
+		case '/':
+			if (b == 0) {
+			    throw std::invalid_argument("division by zero.");
+			}
+			return a / b;
+		default:
+			throw std::invalid_argument("invalid operator.");
+	}
 }
 
 // EXCEPTIONS

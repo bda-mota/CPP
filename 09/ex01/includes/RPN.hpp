@@ -5,11 +5,13 @@
 # include <stack>
 # include <string>
 # include <sstream>
+# include <cstdlib>
+
 
 class RPN {
 
 private:
-	std::stack<int>	_stack;
+	std::stack<float>	_stack;
 
 public:
 	RPN(void);
@@ -19,7 +21,7 @@ public:
 
 	void	run(std::string expression);
 	bool	isValidInput(std::string str);
-
+	float	calculator(float a, float b, const char op);
 
 	class InvalidExpression : public std::exception {
 	public:
@@ -29,6 +31,5 @@ public:
 
 bool	isOperator(std::string slice);
 bool	isValidNumber(std::string slice);
-int		applyOperation(int a, int b, char op);
 
 #endif
