@@ -9,6 +9,7 @@
 # include <exception>
 # include <cstdlib>
 # include <algorithm>
+# include <iomanip>
 
 class PmergeMe {
 private:
@@ -27,20 +28,27 @@ public:
 
 	void	isValidInput(int argc, char **argv);
 	void	isValidNumber(std::string slice);
+	int		jacobsthalSequency(int n);
 	
 	// vector methods
 	void	runVector(int argc, char **argv);
 	void	fillMainVectorList(int argc, char **argv);
-	void	divideVector(std::vector<int>& mainList, std::vector<std::vector<int> >& sublists);
-	void	separateVectorValues(std::vector<int>& mainList, std::vector<std::vector<int> >& sublists, std::vector<int>& sublist);
-	void	printVector(const std::vector<int> &vec); // apagar depois
+	void	divideVector(std::vector<int>& mainList, std::vector<std::vector<int> >& pendingList);
+	void	separateVectorValues(std::vector<int>& mainList, std::vector<std::vector<int> >& pendingList, std::vector<int>& sublist);
+	void	insertingIntoMainVector(std::vector<int>& mainList, std::vector<int>& sublist);
+	void	findMatchingAndInsert(std::vector<int>& mainList, int value);
+	void	checkPreviousAndInsert(std::vector<int>& mainList, int jacobIndex, std::vector<bool>& inserted, std::vector<int>& pendingList);
+	void	printVector(const std::vector<int> &vec);
 
 	// deque methods
 	void	runDeque(int argc, char **argv);
 	void	fillMainDequeList(int argc, char **argv);
-	void	divideDeque(std::deque<int>& mainList, std::deque<std::deque<int> >& sublists);
-	void	separateDequeValues(std::deque<int>& mainList, std::deque<std::deque<int> >& sublists, std::deque<int>& sublist);
-	void	printDeque(const std::deque<int> &vec); // apagar depois
+	void	divideDeque(std::deque<int>& mainList, std::deque<std::deque<int> >& pendingList);
+	void	separateDequeValues(std::deque<int>& mainList, std::deque<std::deque<int> >& pendingList, std::deque<int>& sublist);
+	void	insertingIntoMainDeque(std::deque<int>& mainList, std::deque<int>& sublist);
+	void	findMatchingAndInsert(std::deque<int>& mainList, int value);
+	void	checkPreviousAndInsert(std::deque<int>& mainList, int jacobIndex, std::deque<bool>& inserted, std::deque<int>& pendingList);
+	void	printDeque(const std::deque<int> &vec);
 };
 
 #endif

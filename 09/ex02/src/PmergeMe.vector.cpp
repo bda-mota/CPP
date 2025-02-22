@@ -1,25 +1,24 @@
 #include "../includes/PmergeMe.hpp"
 
 void PmergeMe::runVector(int argc, char **argv) {
-	try {
-		isValidInput(argc, argv);
-	} catch (std::exception & e) {
-		std::cerr << e.what() << std::endl;
-	}
-
+	clock_t start = clock(); 
 	fillMainVectorList(argc, argv);
+	std::cout << "Before: ";
+	printVector(_vectorList);
 
 	std::vector<std::vector<int> > mainSubLists;
-	std::vector<int> sublist;
+	std::vector<int> pendingList;
 
 	divideVector(_vectorList, mainSubLists);
-	for (size_t i = 0; i < mainSubLists.size(); i++) {
-		printVector(mainSubLists[i]);
-	}
-	separateVectorValues(_vectorList, mainSubLists, sublist);
-	std::cout << "sublist: " << std::endl;
-	printVector(sublist);
-	// inserção de acordo com Jacobsthal
+	separateVectorValues(_vectorList, mainSubLists, pendingList);
+	insertingIntoMainVector(_vectorList, pendingList);
+	std::cout << "After: ";
+	printVector(_vectorList);
+	clock_t end = clock();
+	double duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+
+	std::cout << "Time to process a range of " << _vectorList.size()
+	<< " elements with std::vector : " << std::fixed << std::setprecision(6) <<  duration << " s" << std::endl;
 }
 
 void	PmergeMe::fillMainVectorList(int argc, char **argv) {
@@ -51,12 +50,13 @@ void	PmergeMe::divideVector(std::vector<int>& mainList, std::vector<std::vector<
 	}
 }
 
-void	PmergeMe::separateVectorValues(std::vector<int>& mainList, std::vector<std::vector<int> >& mainSublists, std::vector<int>& sublist) {
+void	PmergeMe::separateVectorValues(std::vector<int>& mainList, std::vector<std::vector<int> >& mainSublists, std::vector<int>& pendingList) {
 	int first, second;
 
 	for (size_t i = 0; i < mainSublists.size(); i++) {
 		if (mainSublists[i].size() == 1) {
-			sublist.push_back(mainSublists[i][0]);
+			pendingList.push_back(mainSublists[i][0]);
+			std::sort(mainList.begin(), mainList.end());
 			return;
 		}
 
@@ -65,12 +65,64 @@ void	PmergeMe::separateVectorValues(std::vector<int>& mainList, std::vector<std:
 
 		if (first > second) {
 			mainList.push_back(first);
-			sublist.push_back(second);
+			pendingList.push_back(second);
 		} else {
 			mainList.push_back(second);
-			sublist.push_back(first);
+			pendingList.push_back(first);
 		}
 	}
+	//adicionar aqui o 0 e o 1 do pending -> se economizar tempo
 
-	 std::sort(mainList.begin(), mainList.end());
+	std::sort(mainList.begin(), mainList.end());
+}
+
+void	PmergeMe::insertingIntoMainVector(std::vector<int>& mainList, std::vector<int>& pendingList) {
+	if (pendingList.empty()) {
+		return;
+	}
+
+	int pendingListSize = pendingList.size();
+	std::vector<bool> inserted(pendingListSize, false);
+
+	int i = 0;
+	while (std::find(inserted.begin(), inserted.end(), false) != inserted.end()) {
+		int jacobIndex = jacobsthalSequency(i);
+
+		if (jacobIndex >= pendingListSize) {
+			checkPreviousAndInsert(mainList, jacobIndex, inserted, pendingList);
+			break;
+		}
+
+		if (!inserted[jacobIndex] && pendingList[jacobIndex]) {
+			findMatchingAndInsert(mainList, pendingList[jacobIndex]);
+			inserted[jacobIndex] = true;
+			checkPreviousAndInsert(mainList, jacobIndex, inserted, pendingList);
+		}
+		i++;
+	}
+}
+
+void	PmergeMe::findMatchingAndInsert(std::vector<int>& mainList, int value) {
+	for (size_t i = 0; i < mainList.size(); i++) {
+		if (mainList[i] > value) {
+			mainList.insert(mainList.begin() + i, value);
+			return;
+		}
+	}
+	mainList.push_back(value);
+}
+
+void	PmergeMe::checkPreviousAndInsert(std::vector<int>& mainList, int jacobIndex, std::vector<bool>& inserted, std::vector<int>& pendingList) {
+	int maxSize = pendingList.size() - 1;
+	
+	if (jacobIndex > maxSize) {
+		jacobIndex = maxSize;
+	}
+	while (jacobIndex >= 0) {
+		if (!inserted[jacobIndex] && pendingList[jacobIndex]) {
+			findMatchingAndInsert(mainList, pendingList[jacobIndex]);
+			inserted[jacobIndex] = true;
+		}
+		jacobIndex--;
+	}
 }

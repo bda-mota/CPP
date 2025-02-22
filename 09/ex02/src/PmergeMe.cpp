@@ -48,8 +48,49 @@ void	PmergeMe::isValidNumber(std::string slice) {
 }
 
 void PmergeMe::printVector(const std::vector<int> &vec) {
+	int count = 0;
+	
 	for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-			std::cout << *it << " ";
+		//if (count == 5) {
+		//	std::cout << "[...]";
+		//	break;
+		//}
+		std::cout << *it << " ";
+		count++;
 	}
 	std::cout << std::endl;
+}
+
+void PmergeMe::printDeque(const std::deque<int> &vec) {
+	int count = 0;
+
+	for (std::deque<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
+		if (count == 5) {
+			std::cout << "[...]";
+			break;
+		}
+		std::cout << *it << " ";
+		count++;
+	}
+	std::cout << std::endl;
+}
+
+int	PmergeMe::jacobsthalSequency(int n) {
+	if (n == 0) {
+		return 0;
+	}
+	if (n == 1) {
+		return 1;
+	}
+
+	int prev2 = 0;
+	int prev1 = 1;
+	int current = 0;
+
+	for (int i = 2; i <= n; i++) {
+		current = prev1 + 2 * prev2;
+		prev2 = prev1;
+		prev1 = current;
+	}
+	return current;
 }

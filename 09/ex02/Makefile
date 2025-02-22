@@ -11,7 +11,7 @@ DEFAULT_GOAL: all
 
 # Compiler and flags
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98
+CFLAGS	=	-Wall -Werror -Wextra -g -std=c++98
 RM		=	rm -rf
 
 # Dir and file names
