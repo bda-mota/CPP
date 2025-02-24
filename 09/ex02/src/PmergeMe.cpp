@@ -2,7 +2,7 @@
 
 PmergeMe::PmergeMe() {};
 
-PmergeMe::PmergeMe(PmergeMe const & other) : _dequeList(other._dequeList), _vectorList(other._vectorList) {};
+PmergeMe::PmergeMe(PmergeMe const & other) : _vectorList(other._vectorList), _dequeList(other._dequeList) {};
 
 PmergeMe & PmergeMe::operator=(PmergeMe const & other) {
 	if (this != &other) {
