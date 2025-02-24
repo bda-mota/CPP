@@ -2,7 +2,7 @@
 
 PmergeMe::PmergeMe() {};
 
-PmergeMe::PmergeMe(PmergeMe const & other) { *this = other; }
+PmergeMe::PmergeMe(PmergeMe const & other) : _dequeList(other._dequeList), _vectorList(other._vectorList) {};
 
 PmergeMe & PmergeMe::operator=(PmergeMe const & other) {
 	if (this != &other) {
@@ -10,11 +10,10 @@ PmergeMe & PmergeMe::operator=(PmergeMe const & other) {
 		this->_dequeList = other._dequeList;
 	}
 	return *this;
-} // checar se esta certo isso aqui 
+}
 
 PmergeMe::~PmergeMe() {};
 
-// GETTERS
 std::vector<int> PmergeMe::getVectorMainList() const { return _vectorList; }
 std::deque<int> PmergeMe::getDequeMainList() const { return _dequeList; }
 
