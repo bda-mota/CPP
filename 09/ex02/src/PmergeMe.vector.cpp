@@ -71,7 +71,6 @@ void	PmergeMe::separateVectorValues(std::vector<int>& mainList, std::vector<std:
 			pendingList.push_back(first);
 		}
 	}
-	//adicionar aqui o 0 e o 1 do pending -> se economizar tempo
 
 	std::sort(mainList.begin(), mainList.end());
 }
