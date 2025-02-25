@@ -46,34 +46,6 @@ void	PmergeMe::isValidNumber(std::string slice) {
 	}
 }
 
-void PmergeMe::printVector(const std::vector<int> &vec) {
-	int count = 0;
-	
-	for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-		if (count == 5) {
-			std::cout << "[...]";
-			break;
-		}
-		std::cout << *it << " ";
-		count++;
-	}
-	std::cout << std::endl;
-}
-
-void PmergeMe::printDeque(const std::deque<int> &vec) {
-	int count = 0;
-
-	for (std::deque<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-		if (count == 5) {
-			std::cout << "[...]";
-			break;
-		}
-		std::cout << *it << " ";
-		count++;
-	}
-	std::cout << std::endl;
-}
-
 int	PmergeMe::jacobsthalSequency(int n) {
 	if (n == 0) {
 		return 0;

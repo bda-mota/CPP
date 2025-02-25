@@ -1,22 +1,24 @@
 #include "../includes/PmergeMe.hpp"
 
 void PmergeMe::runVector(int argc, char **argv) {
-	clock_t start = clock(); 
+	clock_t start = clock();
 	fillMainVectorList(argc, argv);
 	std::cout << "Before: ";
-	printVector(_vectorList);
+	printContainers(_vectorList);
+	
+	if (!isSorted(_vectorList)) {
+		std::vector<std::vector<int> > mainSubLists;
+		std::vector<int> pendingList;
 
-	std::vector<std::vector<int> > mainSubLists;
-	std::vector<int> pendingList;
+		divideVector(_vectorList, mainSubLists);
+		separateVectorValues(_vectorList, mainSubLists, pendingList);
+		insertingIntoMainVector(_vectorList, pendingList);
+	}
 
-	divideVector(_vectorList, mainSubLists);
-	separateVectorValues(_vectorList, mainSubLists, pendingList);
-	insertingIntoMainVector(_vectorList, pendingList);
-	std::cout << "After: ";
-	printVector(_vectorList);
 	clock_t end = clock();
+	std::cout << "After: ";
+	printContainers(_vectorList);
 	double duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-
 	std::cout << "Time to process a range of " << _vectorList.size()
 	<< " elements with std::vector : " << std::fixed << std::setprecision(6) <<  duration << " s" << std::endl;
 }
@@ -117,6 +119,7 @@ void	PmergeMe::checkPreviousAndInsert(std::vector<int>& mainList, int jacobIndex
 	if (jacobIndex > maxSize) {
 		jacobIndex = maxSize;
 	}
+
 	while (jacobIndex >= 0) {
 		if (!inserted[jacobIndex] && pendingList[jacobIndex]) {
 			findMatchingAndInsert(mainList, pendingList[jacobIndex]);

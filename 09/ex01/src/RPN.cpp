@@ -63,7 +63,7 @@ float	RPN::calculator(float a, float b, const char op) {
 			return a * b;
 		case '/':
 			if (b == 0) {
-			    throw std::invalid_argument("division by zero.");
+				throw std::invalid_argument("division by zero.");
 			}
 			return a / b;
 		default:
